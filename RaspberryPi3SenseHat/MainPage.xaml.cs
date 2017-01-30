@@ -42,6 +42,7 @@ namespace RaspberryPi3SenseHat
 
         private async void SetScreenText(string text)
         {
+            // Need to invoke UI updates on the UI thread because this event handler gets invoked on a separate thread.
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
                 CoreDispatcherPriority.Normal,
                 () =>
